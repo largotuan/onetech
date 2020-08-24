@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views import View
 from product import models as product_models
 from core.utils import *
+from .models import Product
 # Create your views here.
 
 
@@ -24,3 +25,9 @@ class ProductDetail(View):
 
         context = {'global_data': global_data, 'variation': variation}
         return render(request, 'homepage/product_view.html', context)
+
+
+def product(request):
+    list_products = Product.objects.all()
+    context = {"list_products": list_products}
+    return render(request, 'homepage/product.html', context)

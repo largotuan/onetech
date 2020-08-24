@@ -1,5 +1,5 @@
 <!-- Single Product -->
-
+{% load static %}
 	<div class="single_product">
 		<div class="container">
 			<div class="row">
@@ -7,24 +7,26 @@
 				<!-- Images -->
 				<div class="col-lg-2 order-lg-1 order-2">
 					<ul class="image_list">
-						<li data-image="{{ variation.product.product_img }}"><img src="{{ variation.product.product_img }}" alt=""></li>
-						<li data-image="{{ variation.product.product_img }}"><img src="{{ variation.product.product_img }}" alt=""></li>
-						<li data-image="{{ variation.product.product_img }}"><img src="{{ variation.product.product_img }}" alt=""></li>
+						<!--<li><img src="{% static 'homepage/images/best_2.png' %}" alt="Anh truyen vao bi sai"></li>
+						<li><a href="#"><img src="{% static 'homepage/images/best_1.png' %}" alt="Anh truyen vao bi sai"></a></li>-->
+						{% for item in list_product %}
+							<li data-image="{{ item.product_img }}"><img src="{{ item.product_img }}" alt=""></li>
+						{% endfor %}
 					</ul>
 				</div>
 
 				<!-- Selected Image -->
 				<div class="col-lg-5 order-lg-2 order-1">
-					<div class="image_selected"><img src="{{ variation.product.product_img }}" alt=""></div>
+					<div class="image_selected"><img src="{{ Variation.product.product_img }}" alt=""></div>
 				</div>
 
 				<!-- Description -->
 				<div class="col-lg-5 order-3">
 					<div class="product_description">
-						<div class="product_category">{{ variation.product.category.title }}</div>
-						<div class="product_name">{{ variation.product.title }}</div>
+						<div class="product_category">{{ Variation.product.category.title }}</div>
+						<div class="product_name">{{ Variation.product.title }}</div>
 						<div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
-						<div class="product_text"><p>{{ variation.product.description }}</p></div>
+						<div class="product_text"><p>{{ Variation.product.description }}</p></div>
 						<div class="order_info d-flex flex-row">
 							<form action="#">
 								<div class="clearfix" style="z-index: 1000;">
@@ -56,7 +58,7 @@
 
 								</div>
 
-								<div class="product_price">{{ variation.price }} VNĐ</div>
+								<div class="product_price">{{ Variation.price }} VNĐ</div>
 								<div class="button_container">
 									<button type="button" class="button cart_button">Add to Cart</button>
 									<div class="product_fav"><i class="fas fa-heart"></i></div>

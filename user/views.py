@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from .models import CustomerUser
 # Create your views here.
@@ -24,6 +24,12 @@ class LoginView(View):
 
         login(request, user)
         return redirect('core:index')
+
+
+class LogoutView(View):
+    def logout(request):
+        logout(request)
+        return HttpResponse('Ban da thoat')
 
 
 class UserRegister(View):

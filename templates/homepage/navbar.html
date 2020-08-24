@@ -21,7 +21,7 @@
 								<div><a href="{% url 'user:register' %}">Đăng ký</a></div>
 								{% else %}
 									<div>Chào <a href="#">{{ user.username }}</a></div>
-									<div><a href="">Đăng xuất</a></div>
+									<div><a href="{% url 'user:logout' %}">Đăng xuất</a></div>
 								{% endif %}
 							</div>
 						</div>
